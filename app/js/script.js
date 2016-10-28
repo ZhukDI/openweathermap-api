@@ -25,8 +25,8 @@ $(document).ready(function () {
             });
 
         };
-
-        getJSON('http://api.openweathermap.org/data/2.5/forecast?id='+ minsk_ID +'&APPID=' + app_ID).then(function(data) {
+        //http://api.openweathermap.org/data/2.5/forecast?id='+ minsk_ID +'&APPID=' + app_ID
+        getJSON('http://api.openweathermap.org/data/2.5/forecast?q=Minsk,by' +'&APPID=' + app_ID).then(function(data) {
             var weatherTemplate = document.getElementById("weather-template").innerHTML;
             var compileTemplate = Handlebars.compile(weatherTemplate);
             var result = compileTemplate(data);
