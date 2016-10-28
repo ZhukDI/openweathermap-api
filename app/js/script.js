@@ -34,7 +34,8 @@ $(document).ready(function () {
             content.innerHTML = result;
             //console.log(result);
             console.log(data);
-            // console.log(data.list[0].dt_txt);
+            console.log(data.list[0].dt_txt);
+            console.log(data.list[0].weather[0].description);
         }, function(status) {
             alert('Something went wrong.');
         });

@@ -30,21 +30,27 @@
     <div class="jumbotron">
     	<div class="container">
 			<div class="article"  id =	"content">
-		  		
+		  		<script id="weather-template" type="text/x-handlebars-template">
+			    	{{#each list}}
+			    	<div class="day">
+						<h3 class="time">{{#each weather}}<img src="img/{{icon}}.png" alt="">{{/each}}{{dt_txt}}</h3>
+						{{#each weather}}
+						<p class="description">Описание {{description}}</p>
+						<!-- <img src="img/{{icon}}.png" alt=""> -->
+						{{/each}}
+						<p class="humidity">Влажность: {{main.humidity}}%</p>
+						<p class="wind_speed">Скорость ветра: {{wind.speed}} м/с</p>
+						
+						<!-- <img src="img/01d.png" alt=""> -->
+						<!-- <p>Подробнее</p> -->
+					</div>
+			   		{{/each}}
+		    	</script>	
 	   		</div>
 		</div>
     </div>
 
-    <script id="weather-template" type="text/x-handlebars-template">
-    	{{#each list}}
-    	<div class="day">
-			<h3 class="time">{{dt_txt}}</h3>
-			<p>Влажность: {{main.humidity}}%</p>
-			<p>Скорость ветра: {{wind.speed}} м/с</p>
-			<p>Подробнее</p>
-		</div>
-   		{{/each}}
-    </script>	
+
     <script type="text/javascript" src="libs/handlebars/handlebars.min.js"></script>
     <script src="libs/jquery/dist/jquery.min.js" type="text/javascript"></script>
     <script src="libs/bootstrap/dist/js/bootstrap.min.js" type="text/javascript"></script>
