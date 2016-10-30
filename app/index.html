@@ -29,20 +29,31 @@
 
     <div class="jumbotron">
     	<div class="container">
+	    	<div class="col-md-12">
+	    		<div class="search-country col-md-4 col-md-offset-4">
+					<p class="search-text"><em>See the weather in any country:</em></p>
+					<form id="country-search-action">
+						<div class="form-group">
+						    <input type="text" class="form-control search-input" id="country-user" placeholder="Country name">
+						</div>
+						<div class="submit-button col-md-offset-4">
+							<button type="submit" class="btn btn-primary btn-lg">Search</button>
+						</div>
+					</form>
+				</div>
+			</div>
 			<div class="article"  id =	"content">
 		  		<script id="weather-template" type="text/x-handlebars-template">
 			    	{{#each list}}
 			    	<div class="day col-lg-2">
-						<h3 class="time">{{#each weather}}<img src="img/{{icon}}.png" alt="">{{/each}}{{dt_txt}}</h3>
+						<h3 class="time">{{#each weather}}<img src="img/{{icon}}.png" alt="">{{/each}} {{dt_txt}}</h3>
 						{{#each weather}}
-						<p class="description">Описание {{description}}</p>
-						<!-- <img src="img/{{icon}}.png" alt=""> -->
+						<p class="description">Описание <em>{{description}}</em></p>
 						{{/each}}
-						<p class="humidity">Влажность: {{main.humidity}}%</p>
-						<p class="wind_speed">Скорость ветра: {{wind.speed}} м/с</p>
-						
-						<!-- <img src="img/01d.png" alt=""> -->
-						<!-- <p>Подробнее</p> -->
+						<p class="humidity">Температура: <em>{{main.temp}}&#176C</em></p>
+						<p class="humidity">Влажность: <em>{{main.humidity}}%</em></p>
+						<p class="humidity">Давление: <em>{{pressureMm main.pressure}} мм рт.ст.</em></p>
+						<p class="wind_speed">Скорость ветра: <em>{{wind.speed}} м/с</em></p>
 					</div>
 			   		{{/each}}
 		    	</script>	
