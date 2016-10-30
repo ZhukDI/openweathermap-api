@@ -14,7 +14,6 @@ $(document).ready(function () {
         }else{
             cityWeather(city);
             time = setTimeout(function run(){
-                alert('Сработал таймер!')
                 cityWeather(city);
                 time = setTimeout(run, 300000);//5 минут
             }, 300000);
