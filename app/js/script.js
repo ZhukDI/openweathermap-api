@@ -1,20 +1,34 @@
 "use strict";
 
 $(document).ready(function () {
-    // var source = $("#weather-template").html();
     var app_ID = '4bcc1ce632994fe5647884e0fae87f01';
-    var minsk_ID = 625144;
+    //var minsk_ID = 625144;
+    var time;
 
-    $("#city-search-action").on('submit', function(event){
+    $("#city-search-click").on('submit', function(event){
+        stopTime();
         event.preventDefault();
         var city = $("#city").val();
         if (city == ''){
             console.log('Ничего не ввели'); 
-        }else
+        }else{
             cityWeather(city);
+            time = setTimeout(function run(){
+                alert('Сработал таймер!')
+                cityWeather(city);
+                time = setTimeout(run, 300000);//5 минут
+            }, 300000);
+        }
 
         //console.log(city);
     });
+
+    function stopTime(){
+        if(time){
+            clearTimeout(time);
+            time = null;
+        }
+    }
 
     function cityWeather(city){
         Handlebars.registerHelper('pressureMm', function() {
@@ -43,6 +57,7 @@ $(document).ready(function () {
         }
         xhr.send();
     }
+});
 
     // var renderingWeather = function(city) {
     //     console.log(city);
@@ -97,4 +112,3 @@ $(document).ready(function () {
 
     // setInterval(renderData, 1000)
 
-})
