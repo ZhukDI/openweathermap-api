@@ -10,7 +10,7 @@ $(document).ready(function () {
         event.preventDefault();
         var city = $("#city").val();
         if (city == ''){
-            console.log('Ничего не ввели'); 
+            console.log('Ничего не ввели');
         }else{
             cityWeather(city);
             time = setTimeout(function run(){
@@ -40,15 +40,21 @@ $(document).ready(function () {
             var status = xhr.status;
             if (status == 200){
                 var data = JSON.parse(xhr.responseText);
-                
+
                 var source = $("#weather-template").html();
                 var template = Handlebars.compile(source);
                 var result = template(data);
-                var content = document.getElementById("content");
+                var content = $("#content")[0];
                 content.innerHTML = result;
                 console.log(data);
             }else{
                 console.log("Error request: " + xhr.status + " " + xhr.statusText);
+                $('.alert').remove();
+                var tmpl = '<div class = "alert alert-danger alert-dismissible" role="alert">' +
+                '<button type="button" class="close" data-dismiss="alert" aria-label="Close">' +
+                '<span aria-hidden="true">&times;</span></button>' +
+                '<strong>Error!</strong> '+ xhr.status + " " + xhr.statusText + '.' + '</div>';
+                $('#alert').append(tmpl);
             }
         }
         xhr.onerror = function(){
@@ -88,7 +94,7 @@ $(document).ready(function () {
     //     };
     //     //http://api.openweathermap.org/data/2.5/forecast?id='+ minsk_ID +'&APPID=' + app_ID
     //     getJSON('http://api.openweathermap.org/data/2.5/forecast?q=' + city +'&units=metric&APPID=' + app_ID).then(function(data) {
-            
+
     //         var template = Handlebars.compile(source);
     //         console.log(data);
     //         var weatherTemplate = document.getElementById("weather-template").innerHTML;
@@ -104,10 +110,9 @@ $(document).ready(function () {
 
     // }
 
-    
 
-    
-    
+
+
+
 
     // setInterval(renderData, 1000)
-
