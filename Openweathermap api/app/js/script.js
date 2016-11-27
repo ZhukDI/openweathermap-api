@@ -41,6 +41,7 @@ $(document).ready(function () {
             xhr.open('get', 'http://api.openweathermap.org/data/2.5/forecast?q=' + city +'&units=metric&APPID=' + app_ID, true);
             xhr.onload = function(){
                 var status = xhr.status;
+                console.log(status);
                 if (status == 200){
                     $('.alert').remove();
                     var data = JSON.parse(xhr.responseText);
@@ -65,7 +66,6 @@ $(document).ready(function () {
             };
             xhr.onerror = function(){
                 //console.log("Ошибка!");
-                reject(status);
             };
             xhr.send();
         });
