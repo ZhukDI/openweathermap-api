@@ -1,9 +1,26 @@
 body {
   background-color: #eee; }
-
-.navbar-inverse {
-  background-color: #0d9827;
-  border-color: #0d9827; }
-
-.navbar-brand {
-  color: #fcf201 !important; }
+  body .navbar-inverse {
+    background-color: #4cae4c;
+    border-color: #4cae4c; }
+    body .navbar-inverse .navbar-brand {
+      color: #ffffff !important; }
+  body form {
+    margin-top: 35px; }
+    body form h4 {
+      margin-left: 75px !important; }
+    body form .form-group {
+      margin-top: 20px; }
+    body form .btn-success {
+      width: 160px;
+      margin-top: 10px;
+      margin-left: 10px; }
+  body #tdList thead {
+    background: #013bfc;
+    color: #fff; }
+  body #footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    margin: auto;
+    text-align: right; }

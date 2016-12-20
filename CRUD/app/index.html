@@ -2,18 +2,15 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>CRUD mobile</title>
+	<title>CRUD programmer</title>
     <link rel="icon" href="mobile.ico"/>
-	<link href="css/main.css" rel="stylesheet">
-	<link href="libs/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-	<link href="libs/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-	<link href="css/main.css" rel="stylesheet">
 
-
+	<link href="css/libs.min.css" rel="stylesheet">
+	<link href="css/main.css" rel="stylesheet">
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-      	<div class="container">
+    	<div class="container">
 	        <div class="navbar-header">
 		        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
 		            <span class="sr-only">Toggle navigation</span>
@@ -21,16 +18,74 @@
 		            <span class="icon-bar"></span>
 		            <span class="icon-bar"></span>
 		        </button>
-	          	<a class="navbar-brand" href="#">Mobile CRUD</a>
+	        	<a class="navbar-brand" href="#">Programmer CRUD</a>
 	        </div>
 	        <div class="navbar-collapse collapse">
+	        	
 
         	</div>
         </div>
     </div>
+    <div class="jumbotron">
+		<div class="container">
+			<div class="col-md-3">
+				<form id="insert-programmer-click">
+					<h4 class="col-lg-offset-3">Programmer</h4>
+					<div class="form-group">
+						<input type="text" id="txtName" class="form-control" placeholder="Name" >
+					</div>
+					<div class="form-group">
+						<input type="text" id="txtAge" class="form-control" placeholder="Age" >
+					</div>
+					<div class="form-group">
+						<input type="text" id="txtSalary" class="form-control" placeholder="Salary" >
+					</div>
+					<div class="form-group">
+						<input type="text" id="txtSkill" class="form-control" placeholder="Skill" >
+					</div>
+					<div class="col-lg-offset-1 col-md-2">
+						<input type="submit" value="Insert" id="btnSave" class="btn btn-success"/>
+					</div>	
+				</form>
+			</div>
+			<div class="col-md-3">
+				<form id="insert-programmer-click">
+					<h4 class="col-lg-offset-3">TeamLeader</h4>
+					<div class="form-group">
+						<input type="text" id="txtName" class="form-control" placeholder="Name" >
+					</div>
+					<div class="form-group">
+						<input type="text" id="txtAge" class="form-control" placeholder="Age" >
+					</div>
+					<div class="form-group">
+						<input type="text" id="txtSalary" class="form-control" placeholder="Salary" >
+					</div>
+					<div class="form-group">
+						<input type="text" id="txtSkill" class="form-control" placeholder="Skill" >
+					</div>
+					<div class="form-group">
+						<input type="text" id="txtEmail" class="form-control" placeholder="Email" >
+					</div>
+					<div class="col-lg-offset-1 col-md-2">
+						<input type="submit" value="Insert" id="btnSave" class="btn btn-success"/>
+					</div>	
+				</form>
+			</div>
+		</div>
+		<div class="container">
+			<div class="programmer-list">
+				<div class="programmer-item" style="transition: box-shadow .25s;"></div>
+			</div>	
+		</div>
+		<div id="footer">
+			<div class="container">
+				<p class="text-muted credit">Zhuk Dmitry, group 9</p>
+			</div>
+		</div>
+	</div>
 
-    <script src="libs/jquery/dist/jquery.min.js" type="text/javascript"></script>
-	<script src="libs/bootstrap/dist/js/bootstrap.min.js" type="text/javascript"></script>
-	<script src="libs/angular/angular.min.js" type="text/javascript"></script>
-	<script type="text/javascript" src="js/script.js"></script>
+    <script src="js/libs.min.js" type="text/javascript"></script>
+	<script src="js/script.js" type="text/javascript"></script>
+	<script type="text/javascript" src="libs/handlebars/handlebars.runtime.min.js"></script>
+    <script type="text/javascript" src="libs/handlebars/handlebars.min.js"></script>
 </html>

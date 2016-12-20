@@ -1,13 +1,51 @@
 body {
-  background-color: #eee;
+	background-color: #eee;
+	
+	.navbar-inverse{
+		background-color: #4cae4c;
+		border-color: #4cae4c;
+		
+		.navbar-brand {
+			color: #ffffff !important;
+		}
+	}
+	
+	form{
+		margin-top: 35px;
+		h4{
+			margin-left: 75px !important;
+		}
+		.form-group{
+			margin-top: 20px;
+			
+		}
+		.btn-success{
+			width: 160px;
+			margin-top: 10px;
+			margin-left: 10px;
+		}
+	}
+	
+	#tdList thead{
+		background: #013bfc;
+		color: #fff;
+	}
+	
+	#footer{
+		position: fixed;
+		bottom: 0;
+		width: 100%;
+		margin: auto;
+		text-align: right;
+	}
 }
 
-.navbar-inverse{
-    background-color: #0d9827;
-    border-color: #0d9827;
-}
 
 
-.navbar-brand {
-    color: #fcf201 !important;
-}
+
+
+
+//.field{
+//	margin-top: 50px;
+//	text-align: center;
+//}
