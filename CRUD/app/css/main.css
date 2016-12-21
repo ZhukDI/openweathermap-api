@@ -18,9 +18,18 @@ body {
   body #tdList thead {
     background: #013bfc;
     color: #fff; }
+  body .content {
+    margin-top: 40px; }
+  body .element {
+    margin-top: 12px;
+    background-color: #fff;
+    font-size: 14pt;
+    border-radius: 4px;
+    height: 3em;
+    line-height: 3em; }
   body #footer {
-    position: fixed;
     bottom: 0;
     width: 100%;
     margin: auto;
+    margin-top: 50px;
     text-align: right; }

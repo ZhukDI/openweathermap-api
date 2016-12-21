@@ -4,8 +4,9 @@
 	<meta charset="UTF-8">
 	<title>CRUD programmer</title>
     <link rel="icon" href="mobile.ico"/>
-
+	
 	<link href="css/libs.min.css" rel="stylesheet">
+	<link href="libs/font-awesome/css/font-awesome.min.css" rel="stylesheet">
 	<link href="css/main.css" rel="stylesheet">
 </head>
 <body>
@@ -29,8 +30,8 @@
     <div class="jumbotron">
 		<div class="container">
 			<div class="col-md-3">
-				<form id="insert-programmer-click">
-					<h4 class="col-lg-offset-3">Programmer</h4>
+				<form id="add-programmer-click">
+					<h4 class="col-md-offset-4">Programmer</h4>
 					<div class="form-group">
 						<input type="text" id="txtName" class="form-control" placeholder="Name" >
 					</div>
@@ -44,43 +45,114 @@
 						<input type="text" id="txtSkill" class="form-control" placeholder="Skill" >
 					</div>
 					<div class="col-lg-offset-1 col-md-2">
-						<input type="submit" value="Insert" id="btnSave" class="btn btn-success"/>
+						<input type="submit" value="Add" id="btnAdd" class="btn btn-success addProgrammer"/>
 					</div>	
 				</form>
 			</div>
 			<div class="col-md-3">
-				<form id="insert-programmer-click">
-					<h4 class="col-lg-offset-3">TeamLeader</h4>
+				<form id="add-teamLeader-click">
+					<h4 class="col-md-offset-4">TeamLeader</h4>
 					<div class="form-group">
-						<input type="text" id="txtName" class="form-control" placeholder="Name" >
+						<input type="text" id="txtTlName" class="form-control" placeholder="Name" >
 					</div>
 					<div class="form-group">
-						<input type="text" id="txtAge" class="form-control" placeholder="Age" >
+						<input type="text" id="txtTlAge" class="form-control" placeholder="Age" >
 					</div>
 					<div class="form-group">
-						<input type="text" id="txtSalary" class="form-control" placeholder="Salary" >
+						<input type="text" id="txtTlSalary" class="form-control" placeholder="Salary" >
 					</div>
 					<div class="form-group">
-						<input type="text" id="txtSkill" class="form-control" placeholder="Skill" >
-					</div>
-					<div class="form-group">
-						<input type="text" id="txtEmail" class="form-control" placeholder="Email" >
+						<input type="text" id="txtTlEmail" class="form-control" placeholder="Email" >
 					</div>
 					<div class="col-lg-offset-1 col-md-2">
-						<input type="submit" value="Insert" id="btnSave" class="btn btn-success"/>
+						<input type="submit" value="Add" id="btnAdd" class="btn btn-success addTeamLeader"/>
+					</div>	
+				</form>
+			</div>
+			<div class="col-md-3">
+				<form id="add-team-click">
+					<h4 class="col-md-offset-4">Team</h4>
+					<div class="form-group">
+						<input type="text" id="txtTmName" class="form-control" placeholder="Name" >
+					</div>
+					<div class="form-group">
+						<input type="text" id="txtTmAge" class="form-control" placeholder="Age" >
+					</div>
+					<div class="form-group">
+						<input type="text" id="txtTmSalary" class="form-control" placeholder="Salary" >
+					</div>
+					<div class="form-group">
+						<input type="text" id="txtTmEmail" class="form-control" placeholder="Email" >
+					</div>
+					<div class="col-lg-offset-1 col-md-2">
+						<input type="submit" value="Add" id="btnAdd" class="btn btn-success addTeam"/>
 					</div>	
 				</form>
 			</div>
 		</div>
-		<div class="container">
-			<div class="programmer-list">
-				<div class="programmer-item" style="transition: box-shadow .25s;"></div>
-			</div>	
-		</div>
-		<div id="footer">
-			<div class="container">
-				<p class="text-muted credit">Zhuk Dmitry, group 9</p>
+		
+		<div class="container content">
+			<h4>Programmers:</h4>
+			<div id="programmer-list">
+				
 			</div>
+			<h4>TeamLeader:</h4>
+			<div id="teamLeader-list">
+				
+			</div>
+		</div>
+		<script id="person-template" type="text/x-handlebars-template">				
+			{{#each this}}
+				<div class="element">
+					<div class="col-md-12">
+						<div class="card-panel">
+							<div class="col-md-2">Name: {{name}}</div>
+							<div class="col-md-2">Age: {{age}}</div>
+							<div class="col-md-2">Salary: {{salary}}</div>
+							<div class="col-md-3">Skill: {{skill}}</div>
+							<div class="col-md-3">
+								<button type="button" class="btn btn-danger deleteProgrammer" id="{{id}}">
+									Delete <i class="fa fa-trash-o fa-lg"></i>
+								</button>
+								<button type="button" class="btn btn-warning updateProgrammer" id="{{id}}">
+									Update <i class="fa fa-pencil fa-fw "></i>
+								</button>
+<!--
+								<a class="btn btn-danger" href="#"><i class="fa fa-trash-o fa-lg"></i> Delete</a>
+								<a class="btn btn-default btn-sm" href="#"><i class="fa fa-key fa-fw"></i>
+-->
+							</div>
+						</div>
+					</div>
+				</div>
+			{{/each}}		
+		</script>	
+		<script id="teamLeader-template" type="text/x-handlebars-template">				
+			{{#each this}}
+				<div class="element">
+					<div class="col-md-12">
+						<div class="card-panel">
+							<div class="col-md-2">Name: {{name}}</div>
+							<div class="col-md-2">Age: {{age}}</div>
+							<div class="col-md-2">Salary: {{salary}}</div>
+							<div class="col-md-3">Email: {{email}}</div>
+							<div class="col-md-3">
+								<button type="button" class="btn btn-danger deleteTeamLeader" id="{{id}}">
+									Delete <i class="fa fa-trash-o fa-lg"></i>
+								</button>
+								<button type="button" class="btn btn-warning updateTeamLeader" id="{{id}}">
+									Update <i class="fa fa-pencil fa-fw"></i>
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			{{/each}}		
+		</script>
+	</div>
+    <div id="footer">
+		<div class="container">
+			<p class="text-muted credit">Zhuk Dmitry, group 9</p>
 		</div>
 	</div>
 
