@@ -240,6 +240,16 @@ let searchTeamLeader = (id) => {
 	}
 }
 
+let compileTeam = () => {
+	let data = teams;
+		
+	let source = $("#team-template").html();
+    let template = Handlebars.compile(source);
+    let result = template(data);
+    let content = $("#team-list")[0];
+    content.innerHTML = result;	
+}
+
 let addTeam = () => {
 	event.preventDefault();
 	let name = $("#txtTmName").val();
@@ -259,8 +269,9 @@ let addTeam = () => {
 	}
 	let tmpTeam = new Team(name, task, tmpTeamLeader, tmpMembers, Team.id);
 	console.log(tmpTeam);
+	teams.push(tmpTeam);
 	//console.log(tmpTeamLeader);	
-//	$('#add-team-click')[0].reset();
+	$('#add-team-click')[0].reset();
 //	
 //	tmpTeamLeader = new TeamLeader(name, age, salary, email, Person.id);
 //	teamLeaders.push(tmpTeamLeader);
@@ -272,6 +283,7 @@ let addTeam = () => {
 
 $(document).on("click", ".addTeam", function(){
     addTeam();
+	compileTeam();
 	//compileTeamLeaderName();
 });
 

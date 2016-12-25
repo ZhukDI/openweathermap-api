@@ -76,6 +76,38 @@ body {
 		}
 	}
 	
+	.team{
+		min-height: 200px;
+		background-color: #ffffff;
+		border:	4px double #dddddd;
+		
+		h4{
+			text-align: center;
+			span{
+				color: #535353;
+				font-size: 9pt;
+			}
+		}
+		p{
+			color: #3b3b3b;
+			font-size: 9.5pt;
+			text-align: center;
+			margin-bottom: 5px;
+			span{
+				color: #535353;
+				font-size: 9pt;
+			}
+		}
+		hr{
+			margin-top: 5px;
+			margin-bottom: 5px;
+		}
+		.leader{
+			background-color: #e3e3e3;
+			border-radius: 4px;
+		}
+	}
+	
 	#footer{
 		bottom: 0;
 		width: 100%;

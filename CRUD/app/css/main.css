@@ -51,6 +51,29 @@ body {
         position: absolute; }
       body .members .member input {
         margin-top: 8px; }
+  body .team {
+    min-height: 200px;
+    background-color: #ffffff;
+    border: 4px double #dddddd; }
+    body .team h4 {
+      text-align: center; }
+      body .team h4 span {
+        color: #535353;
+        font-size: 9pt; }
+    body .team p {
+      color: #3b3b3b;
+      font-size: 9.5pt;
+      text-align: center;
+      margin-bottom: 5px; }
+      body .team p span {
+        color: #535353;
+        font-size: 9pt; }
+    body .team hr {
+      margin-top: 5px;
+      margin-bottom: 5px; }
+    body .team .leader {
+      background-color: #e3e3e3;
+      border-radius: 4px; }
   body #footer {
     bottom: 0;
     width: 100%;

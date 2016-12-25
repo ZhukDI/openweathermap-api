@@ -127,9 +127,35 @@
 			<div id="programmer-list">
 				
 			</div>
-			<h4>TeamLeader:</h4>
+			<h4>TeamLeaders:</h4>
 			<div id="teamLeader-list">
 				
+			</div>
+			<h4>Teams:</h4>
+			<div id="team-list">
+<!--
+				<div class="col-md-4 team">
+					<h4><span>Name: </span>Dream</h5>
+					<p>Task:</p>
+					<hr>
+					<div class="team-member leader">
+						<div class="container">
+							<div class="col-md-4">Name</div>
+							<div class="col-md-4">@mail</div>
+							<div class="col-md-4">salary</div>
+						</div>
+					</div>
+					<div class="team-member">
+						<div class="container">
+							<div class="col-md-4">Name</div>
+							<div class="col-md-4">skill</div>
+							<div class="col-md-4">salary</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4 team"></div>
+				<div class="col-md-4 team"></div>
+-->
 			</div>
 		</div>
 		<script id="person-template" type="text/x-handlebars-template">				
@@ -186,6 +212,31 @@
 				<div class="member">
 					<div class="col-md-9"><p>{{name}}</p></div>
 					<div class="col-md-3"><input type="checkbox" value="{{id}}" id = ch{{id}}></div>
+				</div>
+			{{/each}}		
+		</script>
+		<script id="team-template" type="text/x-handlebars-template">				
+			{{#each this}}
+				<div class="col-md-4 team">
+					<h4><span>Name: </span>{{name}}</h5>
+					<p><span>Task: </span>{{task}}</p>
+					<hr>
+					<div class="team-member leader">
+						<div class="container">
+							<div class="col-md-4">{{tmLeader.name}}</div>
+							<div class="col-md-4">{{tmLeader.email}}</div>
+							<div class="col-md-4">{{tmLeader.salary}}</div>
+						</div>
+					</div>
+					<div class="team-member">
+						{{#each members}}
+						<div class="container">
+							<div class="col-md-4">{{name}}</div>
+							<div class="col-md-4">{{skill}}</div>
+							<div class="col-md-4">{{salary}}</div>
+						</div>
+						{{/each}}
+					</div>
 				</div>
 			{{/each}}		
 		</script>
