@@ -254,37 +254,39 @@ let addTeam = () => {
 	event.preventDefault();
 	let name = $("#txtTmName").val();
 	let task = $("#txtTmTask").val();
-	//console.log($("#tlList").val());
 	
 	let tmpTeamLeader = searchTeamLeader($("#tlList").val());
 	
 	let tmpMembers = [];
-	//addMembers()
 	for(let i = 0; i < programmers.length; i++){
-		//let j = 
 		if($("#ch"+programmers[i].id).is(':checked')){
-			//console.log("work!");
 			tmpMembers.push(programmers[i]);
 		}
 	}
 	let tmpTeam = new Team(name, task, tmpTeamLeader, tmpMembers, Team.id);
-	console.log(tmpTeam);
-	teams.push(tmpTeam);
-	//console.log(tmpTeamLeader);	
+	teams.push(tmpTeam);	
 	$('#add-team-click')[0].reset();
-//	
-//	tmpTeamLeader = new TeamLeader(name, age, salary, email, Person.id);
-//	teamLeaders.push(tmpTeamLeader);
-//	console.log(teamLeaders);
-//	
-//	compileTeamLeader();
+
+	compileTeam();
+}
+
+let deleteTeam = (id) => {
+	for(let i = 0; i < teams.length; i++) {
+        if(teams[i].id == id) {
+            teams.splice(i, 1);
+            break;
+        }
+    }	
+	compileTeam();
 }
 
 
 $(document).on("click", ".addTeam", function(){
     addTeam();
-	compileTeam();
-	//compileTeamLeaderName();
+});
+
+$(document).on("click", ".deleteTeam", function(){
+    deleteTeam(this.id);
 });
 
 

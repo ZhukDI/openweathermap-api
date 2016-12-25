@@ -74,6 +74,10 @@ body {
     body .team .leader {
       background-color: #e3e3e3;
       border-radius: 4px; }
+    body .team .buttons {
+      position: absolute;
+      bottom: 10px;
+      right: 10px; }
   body #footer {
     bottom: 0;
     width: 100%;
