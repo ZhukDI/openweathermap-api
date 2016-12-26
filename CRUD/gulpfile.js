@@ -28,12 +28,12 @@ gulp.task('scripts', function(){					//создание одного файла 
 	.pipe(gulp.dest('app/js'));
 });
 
-gulp.task('css-libs', ['sass'],function(){       //минификация и переименование libs.css
-    return gulp.src('app/css/libs.css')
-    .pipe(cssnano())
-    .pipe(rename({suffix: '.min'}))
-    .pipe(gulp.dest('app/css'));
-});
+//gulp.task('css-libs', ['sass'],function(){       //минификация и переименование libs.css
+//    return gulp.src('app/css/libs.css')
+//    .pipe(cssnano())
+//    .pipe(rename({suffix: '.min'}))
+//    .pipe(gulp.dest('app/css'));
+//});
 
 gulp.task('browser-sync', function(){          //сервер
 	browserSync({
@@ -44,7 +44,7 @@ gulp.task('browser-sync', function(){          //сервер
 	});
 });
 
-gulp.task('watch', ['browser-sync', 'css-libs', 'scripts'], function(){
+gulp.task('watch', ['browser-sync', 'scripts'], function(){
 	gulp.watch('app/sass/**/*.scss', ['sass']);
 	gulp.watch('app/**/*.html', browserSync.reload);  //livereload для всех файлов.html находящихся в папках и подпапках
 	gulp.watch('app/js/**/*.js', ['scripts'],browserSync.reload); //livereload для всех файлов.js находящихся в папках и подпапках
