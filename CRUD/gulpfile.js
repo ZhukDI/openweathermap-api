@@ -15,11 +15,16 @@ gulp.task('sass', function(){               // из scss или sass в css
 
 gulp.task('scripts', function(){					//создание одного файла js
 	return gulp.src([
-		'app/libs/jquery/dist/jquery.min.js',
-        'app/libs/bootstrap/dist/js/bootstrap.min.js'		//,'.....'
+		'app/js/main.js',
+		'app/js/person.js',
+		'app/js/teamLeader.js',
+		'app/js/programmer.js',
+		'app/js/team.js'
+		//'app/libs/jquery/dist/jquery.min.js',
+        //'app/libs/bootstrap/dist/js/bootstrap.min.js'		//,'.....'
 		])
-	.pipe(concat('libs.min.js'))
-	.pipe(uglify())
+	.pipe(concat('script.js'))
+	//.pipe(uglify())
 	.pipe(gulp.dest('app/js'));
 });
 
@@ -42,5 +47,5 @@ gulp.task('browser-sync', function(){          //сервер
 gulp.task('watch', ['browser-sync', 'css-libs', 'scripts'], function(){
 	gulp.watch('app/sass/**/*.scss', ['sass']);
 	gulp.watch('app/**/*.html', browserSync.reload);  //livereload для всех файлов.html находящихся в папках и подпапках
-	gulp.watch('app/js/**/*.js', browserSync.reload); //livereload для всех файлов.js находящихся в папках и подпапках
+	gulp.watch('app/js/**/*.js', ['scripts'],browserSync.reload); //livereload для всех файлов.js находящихся в папках и подпапках
 });
